@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="textSize">16sp</dimen> 
+  <dimen name="margin">3dp</dimen>
+  <dimen name="margin_top">3dp</dimen>
+  <dimen name="margin_left">3dp</dimen>
+  <dimen name="margin_bottom">3dp</dimen>
+  <dimen name="margin_right">3dp</dimen>
+  <dimen name="padding">3dp</dimen>
+  <dimen name="padding_top">3dp</dimen>
+  <dimen name="padding_left">3dp</dimen>
+   <dimen name="padding_bottom">3dp</dimen>
+  <dimen name="padding_right">3dp</dimen>
+</resources>

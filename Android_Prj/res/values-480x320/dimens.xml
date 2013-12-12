@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="textSize">12sp</dimen> 
+  
+  <dimen name="margin">2dp</dimen>
+  <dimen name="margin_top">2dp</dimen>
+  <dimen name="margin_left">2dp</dimen>
+  <dimen name="margin_bottom">2dp</dimen>
+  <dimen name="margin_right">2dp</dimen>
+  <dimen name="padding">2dp</dimen>
+  <dimen name="padding_top">2dp</dimen>
+  <dimen name="padding_left">2dp</dimen>
+  <dimen name="padding_bottom">2dp</dimen>
+  <dimen name="padding_right">2dp</dimen>
+</resources>

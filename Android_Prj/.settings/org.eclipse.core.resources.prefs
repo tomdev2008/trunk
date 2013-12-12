@@ -1,0 +1,12 @@
+#Thu Nov 14 00:14:57 CST 2013
+eclipse.preferences.version=1
+encoding//jni/example.c=UTF-8
+encoding//src/com/example/activity/ExampleActivity.java=UTF-8
+encoding//src/com/example/activity/TestActivity.java=UTF-8
+encoding//src/com/example/httper/HttpHandler.java=UTF-8
+encoding//src/com/example/httper/HttpRequester.java=UTF-8
+encoding//src/com/example/norule/NORuleItem.java=UTF-8
+encoding//src/com/example/utils/Waiter.java=UTF-8
+encoding/<project>=UTF-8
+encoding/doc.txt=UTF-8
+separateDerivedEncodings=true

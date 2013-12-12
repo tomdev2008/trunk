@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="textSize">24sp</dimen>
+  <dimen name="margin">6dp</dimen>
+  <dimen name="margin_top">6dp</dimen>
+  <dimen name="margin_left">6dp</dimen>
+  <dimen name="margin_bottom">6dp</dimen>
+  <dimen name="margin_right">6dp</dimen>
+  <dimen name="padding">6dp</dimen>
+  <dimen name="padding_top">6dp</dimen>
+  <dimen name="padding_left">6dp</dimen>
+   <dimen name="padding_bottom">6dp</dimen>
+  <dimen name="padding_right">6dp</dimen> 
+</resources>

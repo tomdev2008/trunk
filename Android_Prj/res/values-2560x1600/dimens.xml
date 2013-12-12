@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="textSize">72sp</dimen> 
+  
+  <dimen name="margin">32dp</dimen>
+  <dimen name="margin_top">32dp</dimen>
+  <dimen name="margin_left">32dp</dimen>
+  <dimen name="margin_bottom">32dp</dimen>
+  <dimen name="margin_right">32dp</dimen>
+  
+  <dimen name="padding">32dp</dimen>
+  <dimen name="padding_top">32dp</dimen>
+  <dimen name="padding_left">32dp</dimen>
+  <dimen name="padding_bottom">32dp</dimen>
+  <dimen name="padding_right">32dp</dimen> 
+</resources>

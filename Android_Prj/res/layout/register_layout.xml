@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/gray"
+    android:orientation="vertical" >
+
+    <include 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title_layout" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="@string/accounts_tip"
+        android:textColor="@color/white"
+        android:paddingLeft="10dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/et_accounts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/d_style_corner"
+        android:scrollHorizontally="true"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp" >
+
+        <RadioButton
+            android:id="@+id/rb_agree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/rb_agree"
+            android:layout_alignBottom="@+id/rb_agree"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/rb_agree"
+            android:gravity="center_vertical"
+            android:text="@string/register_agree"
+            android:textColor="@color/darkgray"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btn_clause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_toRightOf="@+id/textView1"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:text="@string/register_clause"
+            android:textColor="@color/darkgray"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/d_style_green"
+        android:text="@string/register"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:textSize="15sp" />
+
+</LinearLayout>

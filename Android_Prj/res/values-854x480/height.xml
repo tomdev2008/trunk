@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <dimen name="height_1">10.675px</dimen>
+    <dimen name="height_2">21.35px</dimen>
+    <dimen name="height_3">32.025px</dimen>
+    <dimen name="height_4">42.7px</dimen>
+    <dimen name="height_5">53.375px</dimen>
+    <dimen name="height_6">64.05px</dimen>
+    <dimen name="height_7">74.725px</dimen>
+    <dimen name="height_8">85.4px</dimen>
+    <dimen name="height_9">96.075px</dimen>
+    <dimen name="height_10">106.75px</dimen>
+    <dimen name="height_11">117.425px</dimen>
+    <dimen name="height_12">128.1px</dimen>
+    <dimen name="height_13">138.775px</dimen>
+    <dimen name="height_14">149.45px</dimen>
+    <dimen name="height_15">160.125px</dimen>
+    <dimen name="height_20">213.5px</dimen>
+    <dimen name="height_25">266.875px</dimen>
+    <dimen name="height_30">320.25px</dimen>
+    <dimen name="height_35">373.625px</dimen>
+    <dimen name="height_40">427.0px</dimen>
+    <dimen name="height_45">480.375px</dimen>
+    <dimen name="height_50">533.75px</dimen>
+    <dimen name="height_55">587.125px</dimen>
+    <dimen name="height_60">640.5px</dimen>
+    <dimen name="height_65">693.875px</dimen>
+    <dimen name="height_70">747.25px</dimen>
+    <dimen name="height_75">800.625px</dimen>
+    <dimen name="height_80">854.0px</dimen>
+    <dimen name="height_edge_1">0px</dimen><!-- 自定义碎片 -->
+    <dimen name="height_edge_2">0px</dimen>
+</resources>

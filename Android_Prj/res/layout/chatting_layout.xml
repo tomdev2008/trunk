@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chatLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title_layout" />
+
+    <ListView
+        android:id="@+id/lv_chatting"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_weight="1"
+        android:background="@color/whitesmoke"
+        android:cacheColorHint="@color/transparent"
+        android:divider="@null"
+        android:dividerHeight="3dp"
+        android:listSelector="@color/transparent"
+        android:scrollbarStyle="outsideOverlay"
+        android:transcriptMode="alwaysScroll" />
+
+    <LinearLayout
+        android:id="@+id/ll_chatInput"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@color/darkgray"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/ib_convert"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="3dp"
+            android:background="#00000000"
+            android:src="@drawable/d_convert_voice" />
+
+        <LinearLayout
+            android:id="@+id/ll_convert"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/ib_express"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:background="#00000000"
+                android:src="@drawable/d_more_selector" />
+
+            <EditText
+                android:id="@+id/et_chatInput"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/d_style_corner"
+                android:maxLines="5"
+                android:padding="5dp" />
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="55dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="3dp"
+                android:background="@drawable/d_press_voice"
+                android:text="@string/btn_chatting"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_record"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/btn_record"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="3dp"
+                android:background="@drawable/d_press_voice"
+                android:padding="3dp"
+                android:text="@string/btn_normal_voice"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_express"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:background="@color/wheat"
+        android:visibility="gone" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_express"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/rl_express"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+    </FrameLayout>
+
+</LinearLayout>

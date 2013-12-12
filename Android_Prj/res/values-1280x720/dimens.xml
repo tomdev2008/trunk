@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="textSize">47sp</dimen> 
+  
+  <dimen name="margin">17dp</dimen>
+  <dimen name="margin_top">17dp</dimen>
+  <dimen name="margin_left">17dp</dimen>
+  <dimen name="margin_bottom">17dp</dimen>
+  <dimen name="margin_right">17dp</dimen>
+  <dimen name="padding">17dp</dimen>
+  <dimen name="padding_top">17dp</dimen>
+  <dimen name="padding_left">17dp</dimen>
+  <dimen name="padding_bottom">17dp</dimen>
+  <dimen name="padding_right">17dp</dimen> 
+</resources>

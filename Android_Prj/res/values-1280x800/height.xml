@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
+    <dimen name="height_1">16px</dimen>
+    <dimen name="height_2">32px</dimen>
+    <dimen name="height_3">48px</dimen>
+    <dimen name="height_4">64px</dimen>
+    <dimen name="height_5">80px</dimen>
+    <dimen name="height_6">96px</dimen>
+    <dimen name="height_7">112px</dimen>
+    <dimen name="height_8">128px</dimen>
+    <dimen name="height_9">144px</dimen>
+    <dimen name="height_10">160px</dimen>
+    <dimen name="height_11">176px</dimen>
+    <dimen name="height_12">192px</dimen>
+    <dimen name="height_13">208px</dimen>
+    <dimen name="height_14">224px</dimen>
+    <dimen name="height_15">240px</dimen>
+    <dimen name="height_20">320px</dimen>
+    <dimen name="height_25">400px</dimen>
+    <dimen name="height_30">480px</dimen>
+    <dimen name="height_35">560px</dimen>
+    <dimen name="height_40">640px</dimen>
+    <dimen name="height_45">720px</dimen>
+    <dimen name="height_50">800px</dimen>
+    <dimen name="height_55">880px</dimen>
+    <dimen name="height_60">960px</dimen>
+    <dimen name="height_65">1040px</dimen>
+    <dimen name="height_70">1120px</dimen>
+    <dimen name="height_75">1200px</dimen>
+    <dimen name="height_80">1280px</dimen>
+    <dimen name="height_edge_1">0px</dimen><!-- 自定义碎片 -->
+    <dimen name="height_edge_2">0px</dimen>
+</resources>

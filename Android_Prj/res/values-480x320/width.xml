@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="width_1">4px</dimen>
+    <dimen name="width_2">8px</dimen>
+    <dimen name="width_3">12px</dimen>
+    <dimen name="width_4">16px</dimen>
+    <dimen name="width_5">20px</dimen>
+    <dimen name="width_6">24px</dimen>
+    <dimen name="width_7">28px</dimen>
+    <dimen name="width_8">32px</dimen>
+    <dimen name="width_9">36px</dimen>
+    <dimen name="width_10">40px</dimen>
+    
+    <dimen name="width_11">44px</dimen>
+    <dimen name="width_12">48px</dimen>
+    <dimen name="width_13">52px</dimen>
+    <dimen name="width_14">56px</dimen>
+    
+    <dimen name="width_15">60px</dimen>
+    <dimen name="width_20">80px</dimen>
+    <dimen name="width_25">100px</dimen>
+    <dimen name="width_30">120px</dimen>
+    <dimen name="width_35">140px</dimen>
+    <dimen name="width_40">160px</dimen>
+    <dimen name="width_45">180px</dimen>
+    <dimen name="width_50">200px</dimen>
+    <dimen name="width_55">220px</dimen>
+    <dimen name="width_60">240px</dimen>
+    <dimen name="width_65">260px</dimen>
+    <dimen name="width_70">280px</dimen>
+    <dimen name="width_75">300px</dimen>
+    <dimen name="width_80">320px</dimen>
+    <!-- 自定义碎片 -->
+    <dimen name="width_edge_1">1px</dimen>
+    <dimen name="width_edge_2">2px</dimen>
+</resources>
