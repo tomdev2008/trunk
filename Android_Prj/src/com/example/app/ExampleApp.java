@@ -89,11 +89,25 @@ public class ExampleApp extends Application {
 	public static void modifyListener(Object obj,boolean enable) {
 		Logger.log("modifyListener", obj, enable);
 		BaseEntity baseEntity=baseArray.get(getHashCode(obj));
-		baseEntity.setEnable(enable);
+		if (baseEntity!=null) {
+			baseEntity.setEnable(enable);
+		}
+		else {
+			registerListener(obj);
+			modifyListener(obj, enable);
+		}
 	}
 	
 	private static int getHashCode(Object obj){
 		return obj.getClass().getSimpleName().hashCode();
+	}
+	
+	public static boolean hasListener(Object obj){
+		BaseEntity baseEntity=baseArray.get(getHashCode(obj));
+		if (baseEntity==null) {
+			return false;
+		}
+		return true;
 	}
 	
 	private void initBaiduMap(){

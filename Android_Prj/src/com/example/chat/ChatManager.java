@@ -41,7 +41,6 @@ import com.example.entity.UserEntity;
 import com.example.receiver.NetworkReceiver;
 import com.example.utils.DataBase;
 import com.example.utils.FileUtils;
-import com.example.utils.Imager;
 import com.example.utils.Logger;
 import com.example.utils.Toaster;
 
@@ -148,7 +147,7 @@ public class ChatManager {
 
 	// 是否连接到服务
 	private boolean isConnected() {
-		if (NetworkReceiver.isAvailable()) {
+		if (NetworkReceiver.isAvailable) {
 			if (xmppConn != null && xmppConn.isConnected()) {
 				Logger.log(this, "isConnection", true);
 				return true;
@@ -185,7 +184,7 @@ public class ChatManager {
 			iCallBack.onError(CHAT_REGISTER_ERROR);
 		} else if (result.getType() == IQ.Type.RESULT) {
 			Toaster.show(R.string.register_success);
-			userEntity.setUser_head(Imager.getBitmap(R.drawable.img_head));
+			userEntity.setUser_head("default");
 			DataBase.insertUser(userEntity);
 			iCallBack.handleMessage(getUMessage(CHAT_REGISTER_OK, userEntity));
 		} else {
@@ -456,13 +455,13 @@ public class ChatManager {
 		try {
 			JSONArray arrays = new JSONArray(json);
 			JSONObject jsonObject = arrays.getJSONObject(0);
-			String chat_target = jsonObject.getString(ChatColumns.CHAT_TARGET); // 发送者
+			String chat_uname = jsonObject.getString(ChatColumns.CHAT_TARGET); // 发送者
 			String chat_content = jsonObject
 					.getString(ChatColumns.CHAT_CONTENT); // 发送内容
 			String chat_date = jsonObject.getString(ChatColumns.CHAT_DATE); // 发送时间
 			ChatEntity chatEntity = new ChatEntity();
 			chatEntity.setChat_content(chat_content);
-			chatEntity.setChat_target(chat_target);
+			chatEntity.setChat_uname(chat_uname);
 			chatEntity.setChat_date(chat_date);
 			return chatEntity;
 		} catch (JSONException e) {

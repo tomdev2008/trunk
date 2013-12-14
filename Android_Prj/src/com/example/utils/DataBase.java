@@ -135,7 +135,7 @@ public class DataBase {
 			String nick = cursor.getString(cursor
 					.getColumnIndex(UserColumns.USER_NICK));
 			
-			user.setUser_head(Imager.BytesToBimap(head.getBytes("utf-8")));
+//			user.setUser_head(Imager.BytesToBimap(head.getBytes("utf-8")));
 			user.setUser_name(name);
 			user.setUser_pwd(pwd);
 			user.setUser_nick(nick);
@@ -154,8 +154,8 @@ public class DataBase {
 		ContentValues values = new ContentValues();
 		values.put(UserColumns.USER_NICK, user.getUser_nick());
 		values.put(UserColumns.USER_NAME, user.getUser_name());
-		values.put(UserColumns.USER_HEAD, Imager.BitmapToBytes(
-				user.getUser_head()).toString());
+//		values.put(UserColumns.USER_HEAD, Imager.BitmapToBytes(
+//				user.getUser_head()).toString());
 		values.put(UserColumns.USER_PWD, user.getUser_pwd());
 		long rowId=ContentUris.parseId(resolver.insert(USER_URI, values));
 		return rowId;

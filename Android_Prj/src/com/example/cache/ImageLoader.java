@@ -20,14 +20,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.NetworkInfo.State;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.widget.ImageView;
 
+import com.example.receiver.NetworkReceiver;
 import com.example.utils.Logger;
 
 @SuppressLint("NewApi")
@@ -36,20 +34,17 @@ public class ImageLoader {
 	private static final int CORE_POOL_SIZE = 5;
 	private static final int MAX_POOL_SIZE = 256;
 	private static final int DELAY_BEFORE_PURGE = 30 * 1000;
-	private final static Executor execService = new ThreadPoolExecutor(
+	private static final Executor execService = new ThreadPoolExecutor(
 			CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS,
 			new LinkedBlockingQueue<Runnable>());
 	private Handler purgeHandler;
 	private DiskLruCache diskLruCache;
 	private MemoryCache memoryCache;
-	private ConnectivityManager connectivity;
 
 	public ImageLoader(Context context) {
 		purgeHandler = new Handler();
 		memoryCache = new MemoryCache();
 		diskLruCache = new DiskLruCache(context);
-		connectivity = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
 	}
 
 	/**
@@ -62,7 +57,7 @@ public class ImageLoader {
 		resetPurgeTimer();
 		Bitmap bitmap = getBitmapFromCache(imgUrl);// 从缓存中读取
 		Logger.log(this, "loadImage", imgUrl + "//" + bitmap);
-		if (!isAvailable()) {
+		if (!NetworkReceiver.isAvailable) {
 //			imgView.setBackgroundColor(Color.TRANSPARENT);
 			return;
 		}
@@ -159,25 +154,6 @@ public class ImageLoader {
 			}
 			return bitmap;
 		}
-	}
-
-	private boolean isAvailable() {
-		NetworkInfo networkInfo = connectivity.getActiveNetworkInfo();
-		if (networkInfo != null && networkInfo.isAvailable()) {
-			State state = connectivity.getNetworkInfo(
-					ConnectivityManager.TYPE_WIFI).getState();
-			Logger.log(this, "isAvailable wifi", state.name());
-			if (State.CONNECTED == state) {
-				return true;
-			}
-			state = connectivity
-					.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState();
-			Logger.log(this, "isAvailable gprs", state.name());
-			if (State.CONNECTED == state) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	/**

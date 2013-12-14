@@ -18,75 +18,65 @@ import com.example.utils.Logger;
  *
  */
 public class NetworkReceiver extends BroadcastReceiver {
-	/** Anything worse than or equal to this will show 0 bars. */
     private static final int MIN_RSSI = -100;
-
-    /** Anything better than or equal to this will show the max bars. */
     private static final int MAX_RSSI = -55;
-
-    public static final int RSSI_LEVELS = 5;
-	private static WifiManager wifiManager= (WifiManager) ExampleApp.getInstance()
-			.getSystemService(Context.WIFI_SERVICE);
-	private static ConnectivityManager cManager = (ConnectivityManager) ExampleApp.getInstance()
-			.getSystemService(Context.CONNECTIVITY_SERVICE);
-	private static boolean isWifiConnected;
+    private static final int RSSI_LEVELS = 5;
+    
+    public static boolean isAvailable;
+    
+	private static WifiManager wifiManager;
+	private static ConnectivityManager cManager ;
+	
 	public NetworkReceiver() {
 		super();
-		Logger.log("NetworkReceiver", wifiManager + " / " + cManager);
+		Logger.log(this, wifiManager + " / " + cManager);
+		wifiManager= (WifiManager) ExampleApp.getInstance()
+				.getSystemService(Context.WIFI_SERVICE);
+		cManager = (ConnectivityManager) ExampleApp.getInstance()
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 	}
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		String action = intent.getAction();
-		Logger.log("NetWorkReceiver", "onReceive", action);
+		Logger.log(this, "onReceive", action);
 		if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-			isWifiConnected=false;
-			isAvailable();
+			setNetwork();
 		}
 	}
 
-	public static boolean isAvailable() {
+	private void setNetwork() {
 		NetworkInfo networkInfo = cManager.getActiveNetworkInfo();
 		if (networkInfo != null && networkInfo.isAvailable()) {
-			State state = cManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState(); // 获取网络连接状态
-			Logger.log("NetWorkReceiver", "wifi", state.name());
+			State state = cManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+					.getState(); // 获取网络连接状态
+			Logger.log(this, "wifi", state.name());
 			if (State.CONNECTED == state) { // 判断是否正在使用WIFI网络
-				isWifiConnected=true;
-				speakWifiState(wifiManager.getWifiState());
-				return true;
+				isAvailable=true;
 			}
 			state = cManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
 					.getState(); // 获取网络连接状态
-			Logger.log("NetWorkReceiver", "gprs", state.name());
+			Logger.log(this, "gprs", state.name());
 			if (State.CONNECTED == state) { // 判断是否正在使用GPRS网络
-//				TtsSpeakRule.speaking(1, "GPRS网络");
-				return true;
+				isAvailable=true;
 			}
 		} else {
-//			TtsSpeakRule.speaking(1, "未连接网络");
-			return false;
+			isAvailable=false;
 		}
-		return false;
 	}
 
-	public static void speakWifiState(int wifi_state) {
-		Logger.log("speakWifiState", wifi_state);
-//		TtsSpeakRule.speaking(1, "WIFI网络");
+	public static void getWifiState(int wifi_state) {
+		Logger.log("getWifiState", wifi_state);
 		switch (wifi_state) {
 		case WifiManager.WIFI_STATE_DISABLING:
-//			TtsSpeakRule.speaking(1, "正在断开");
 			break;
 		case WifiManager.WIFI_STATE_DISABLED:
-//			TtsSpeakRule.speaking(1, "不可用");
 			break;
 		case WifiManager.WIFI_STATE_ENABLING:
-//			TtsSpeakRule.speaking(1, "正在连接");
 			break;
 		case WifiManager.WIFI_STATE_ENABLED:
-//			TtsSpeakRule.speaking(1, "正常");
 			break;
 		case WifiManager.WIFI_STATE_UNKNOWN:
-//			TtsSpeakRule.speaking(1, "未知状态");
 			break;
 		}
 	}
@@ -94,7 +84,7 @@ public class NetworkReceiver extends BroadcastReceiver {
 	public static String getWifiState() {
 		int wifi_state=wifiManager.getWifiState();
 		WifiInfo info = wifiManager.getConnectionInfo();
-		Logger.log("speakWifiState", wifi_state+"/"+info);
+		Logger.log("getWifiState", wifi_state+"/"+info);
 		switch (wifi_state) {
 		case WifiManager.WIFI_STATE_DISABLING:
 			return "正在断开";
@@ -104,7 +94,7 @@ public class NetworkReceiver extends BroadcastReceiver {
 			return "正在连接";
 		case WifiManager.WIFI_STATE_ENABLED:
 			int singal=getSignalLevel(info.getRssi(), 5);
-			if (singal!=0&&isWifiConnected) {
+			if (singal!=0&&isAvailable) {
 				return "已连接"+singal+"格信号";
 			}
 			return "未连接";	
@@ -124,7 +114,7 @@ public class NetworkReceiver extends BroadcastReceiver {
         }
 	}
 	
-	public static void setWifi(){
+	public static void setWifiState(){
 		if (wifiManager.isWifiEnabled()) {
 			wifiManager.setWifiEnabled(false);
 		} else {

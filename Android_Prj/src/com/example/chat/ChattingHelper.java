@@ -57,7 +57,7 @@ public class ChattingHelper extends SQLiteOpenHelper {
 		Logger.log(this, "insertChatting",database+","+chatEntity);
 		ContentValues values = new ContentValues();
 		values.put(ChatColumns.CHAT_DATE, chatEntity.getChat_date());
-		values.put(ChatColumns.CHAT_TARGET, chatEntity.getChat_target());
+		values.put(ChatColumns.CHAT_TARGET, chatEntity.getChat_uname());
 		values.put(ChatColumns.CHAT_CONTENT, chatEntity.getChat_content());
 		database.beginTransaction();
 		long rowId = 0;

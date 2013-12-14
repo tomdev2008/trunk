@@ -336,7 +336,7 @@ public class ChattingActivity extends BaseActivity implements IChatCallBack,
 		switch (msg.what) {
 		case 1:
 			ChatEntity chatEntity = (ChatEntity) msg.obj;
-			if (userEntity.getUser_name().equals(chatEntity.getChat_target())) {
+			if (userEntity.getUser_name().equals(chatEntity.getChat_uname())) {
 				// view_loginer.setText(userEntity.getUser_name());
 				// view_image.setImageBitmap(chatEntity.getChat_picture());
 			}

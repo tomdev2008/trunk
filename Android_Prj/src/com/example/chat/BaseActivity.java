@@ -20,6 +20,7 @@ public class BaseActivity extends Activity implements IMapCallBack{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ExampleApp.registerListener(this, true);
 		waiter=Waiter.getInstance();
 		titleLayout=TitleLayout.getInstance();
 		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
@@ -97,11 +98,38 @@ public class BaseActivity extends Activity implements IMapCallBack{
 	@Override
 	public void onError(Object what, int errorCode) {
 	}
-
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		log(this, "onResume");
+		ExampleApp.modifyListener(this, true);
+	}
+	@Override
+	protected void onStart() {
+		super.onStart();
+		log(this, "onStart");
+		ExampleApp.modifyListener(this, true);
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		log(this, "onPause");
+		ExampleApp.modifyListener(this, false);
+	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		log(this, "onStop");
+		ExampleApp.modifyListener(this, false);
+	}
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		log(this, "onDestroy");
+		ExampleApp.unregisterListener(this);
 		ExampleApp.unregisterLocationListener(this);
 	}
 	
